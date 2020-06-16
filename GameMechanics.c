@@ -12,16 +12,23 @@
 
 
 
-int Collision_Enemy(Cha *Ch, Enemy1 *E1)
+
+int Collision_Enemy(Cha *Ch,Enemy1 *E1)
 {
-	int Case=0;
-
-	if((Ch->MCP.x+40>=E1->Enemy_Position.x)&&(Ch->MCP.y+60>E1->Enemy_Position.y)&&(Ch->MCP.x<=E1->Enemy_Position.x+40)&&(Ch->MCP.y<E1->Enemy_Position.y+60))
-		Case=1;
-	return Case;
-
-
-
+	
+	if (Ch->MCP.x>=E1->Enemy_Position.x && Ch->MCP.x<=E1->Enemy_Position.x+E1->Enemy_Picture_R->w && abs(Ch->MCP.y+E1->Enemy_Picture_R->h - E1->Enemy_Position.y)==40)
+	{
+		return 1;
+	}
+	else if (abs(Ch->MCP.y+E1->Enemy_Picture_R->h - E1->Enemy_Position.y)==60  && (abs(Ch->MCP.x+Ch->Img->w - E1->Enemy_Position.x)<=10 || abs(Ch->MCP.x - (E1->Enemy_Position.x + E1->Enemy_Picture_R->w)==10)))
+	{
+		return 2;
+	}
+	else
+	{
+		return 0;
+	}
+		
 }
 
 int Collision_World_Obj(Cha *Ch, WO *WOS)
@@ -76,6 +83,15 @@ void ScrollL(SDL_Rect *P)
 	P->x=P->x-4;
 }
 
+int collision_coin(Cha *ch,SDL_Rect	coin)
+{
+	//printf("ABS:%d\n",abs(ch->MCP.y+ch->Img->h-coin.y));
+	//printf("HOR: %d\n",abs(ch->MCP.x - coin.x ));//&& ch->MCP.x - coin.x+coin.w));
+	if (ch->MCP.x-180 >= coin.x && ch->MCP.x-180 <= coin.x+coin.w)// && abs(ch->MCP.y+ch->Img->h-coin.y)==20)
+		return 1;
+	else 
+		return 0;
+}
 
 
 

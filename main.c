@@ -7,8 +7,8 @@
 #include "Characters.h"
 #include "GameMechanics.h"
 #include "vie.h"
-#include "gestion.h"
- #include "bounding.h"
+//#include "gestion.h"
+// #include "bounding.h"
 
 
 int main(int argc, char *argv[])
@@ -18,6 +18,12 @@ int main(int argc, char *argv[])
     Enemy1 *E1;
     BGS *BG;
     vie vie;
+
+    int now=0;
+    int then=0;
+
+    int SCORE=0;
+    int once=0;
  
     
 
@@ -35,6 +41,8 @@ int main(int argc, char *argv[])
     poscoins.y=570;
     Screen=SDL_SetVideoMode(1200,680,32,SDL_HWSURFACE | SDL_DOUBLEBUF);
     SDL_WM_SetCaption("2087",NULL);
+
+    int i;
      
     Play1=IMG_Load("P.png");
     Play3=IMG_Load("P0.png");
@@ -85,6 +93,11 @@ int main(int argc, char *argv[])
     set_piece_sprite(animation_coins);
     while(Exit!=1)
     {
+
+        
+
+      
+
         SDL_PollEvent(&Event);
         switch(Event.type)
         {
@@ -117,43 +130,12 @@ int main(int argc, char *argv[])
 
                     while(GamePlay!=0) //GAME LOOOOOOOOOOOOOOP HEEEEEEEEEEEEERE
                     {
-                        SDL_PollEvent(&Event1);
-                        SDL_FillRect(Screen, NULL, SDL_MapRGB(Screen->format, 255, 255, 255));
-                        Display_BG(BG,Screen);
-                        Display_All_World_Objects(WOS,Screen);
-                        affichervie(&vie,Screen);//VIE prob coin pos
 
-                        if(Collision_Enemy(MC,E1)==1)
-                        { 
-                            SDL_BlitSurface(E1->DImg,NULL,Screen,&E1->GP);
-                            E1->Life=0;
- //
-                        }
-                        else
-                        {
-                            Random_Movement(E1,Screen);
-                        }
-                        if(action_intervalle_temp(&time_coins,SDL_GetTicks(),50) == 1)
-                            frameCoins++;
-                        if(frameCoins > 5 )
-                            frameCoins = 0;
-                        SDL_BlitSurface(spritesheet_coins,&animation_coins[frameCoins],Screen,&poscoins);
-                        Display_Character(MC,Screen);
-                        Jump(MC,E1,OMCP,WOS);
-                        
-                        SDL_Flip(Screen);
-                        switch(Event1.type)
-                        {
-                        case SDL_MOUSEBUTTONDOWN:
-                            printf("x= %d et y=%d \n",Event1.motion.x,Event1.motion.y );
-                            break;
-                        case SDL_KEYDOWN:
-                        {
-                            switch(Event1.key.keysym.sym)
-                            {
-                            case SDLK_UP:
-                            {
-                                if(MC->MinJ==1)
+                         Uint8 *keystates = SDL_GetKeyState(NULL);
+
+                    if (keystates[SDLK_UP])
+                    {   
+                         if(MC->MinJ==1)
                                 {
                                     MC->MaxJ=1;
                                     MC->MinJ=0;
@@ -167,11 +149,21 @@ int main(int argc, char *argv[])
                                 {
                                     MC->Img=IMG_Load("WL1.png");
                                 }
-                            }
-                            break;
-                            case SDLK_RIGHT:
-                            {
-                                if(MC->MCP.x>=800)
+                    }
+                    printf("SCORE: %d\n",SCORE);
+                    for (i=0;i<6;i++)
+                    {
+                        //printf("COLL: %d\n",collision_coin(MC,animation_coins[i]));
+                        if (collision_coin(MC,animation_coins[i]) && !once)
+                        {
+                            SCORE++;
+                            once=1;
+                    
+                        }
+                    }
+                    if (keystates[SDLK_RIGHT])
+                    {
+                        if(MC->MCP.x>=800)
                                 {
                                     if(BG->BGP.x+3800>0)
                                     {
@@ -201,6 +193,7 @@ int main(int argc, char *argv[])
                                         ScrollL(&E1->Enemy_Position);
                                         ScrollL(&E1->C);
                                         ScrollL(&E1->GP);
+                                        poscoins.x-=4;
                                     }
 
                                     else if(MC->MCP.x<=1100)
@@ -222,10 +215,10 @@ int main(int argc, char *argv[])
                                 }
                                 MC->DIR=1;
                             }
-                            break;
-                            case SDLK_LEFT:
-                            {
-                                if(MC->MCP.x<=400)
+                    
+                    if (keystates[SDLK_LEFT])
+                    {
+                        if(MC->MCP.x<=400)
                                 {
                                     if(BG->BGP.x<0)
                                     {
@@ -255,6 +248,7 @@ int main(int argc, char *argv[])
                                         ScrollR(&E1->Enemy_Position);
                                         ScrollR(&E1->C);
                                         ScrollR(&E1->GP);
+                                        poscoins.x+=4;
                                     }
                                     else if(MC->MCP.x>=100)
                                     {
@@ -274,8 +268,60 @@ int main(int argc, char *argv[])
                                     MC->Img=IMG_Load("WL1.png");
                                 }
                                 MC->DIR=0;
-                            }
+                    }
+
+
+
+                        SDL_PollEvent(&Event1);
+                        SDL_FillRect(Screen, NULL, SDL_MapRGB(Screen->format, 255, 255, 255));
+                        Display_BG(BG,Screen);
+                        Display_All_World_Objects(WOS,Screen);
+                        affichervie(&vie,Screen);//VIE prob coin pos
+
+                        if(Collision_Enemy(MC,E1)==1)
+                        {   
+                            printf("YES\n");
+                            SDL_BlitSurface(E1->DImg,NULL,Screen,&E1->GP);
+                            E1->Life=0;
+ //
+                        }
+                        else
+                        {
+                            Random_Movement(E1,Screen);
+                        }
+                        printf("coll: %d\n",Collision_Enemy(MC,E1));
+                        now=SDL_GetTicks();
+                        if (now-then>2000 && Collision_Enemy(MC,E1)==2)
+                        {
+                            then=now;
+                            vie.nb--; 
+                        }
+                            
+                        if (vie.nb==0)
+                        {
+                            GamePlay=0;
+                        }
+                           
+
+                        printf("VIE: %d\n",vie.nb);
+                        if(action_intervalle_temp(&time_coins,SDL_GetTicks(),50) == 1)
+                            frameCoins++;
+                        if(frameCoins > 5 )
+                            frameCoins = 0;
+                        SDL_BlitSurface(spritesheet_coins,&animation_coins[frameCoins],Screen,&poscoins);
+                        Display_Character(MC,Screen);
+                        Jump(MC,E1,OMCP,WOS);
+                        
+                        SDL_Flip(Screen);
+                        switch(Event1.type)
+                        {
+                        case SDL_MOUSEBUTTONDOWN:
+                            printf("x= %d et y=%d \n",Event1.motion.x,Event1.motion.y );
                             break;
+                        case SDL_KEYDOWN:
+                        {
+                            switch(Event1.key.keysym.sym)
+                            {
                             case SDLK_ESCAPE:
                             {
                                 GamePlay=0;

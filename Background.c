@@ -10,9 +10,6 @@
 
 
 
-
-
-
 void Init_All_Objs(WO *WOS)
 {
 	WOS->GR1=IMG_Load("GR1.png");

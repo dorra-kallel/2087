@@ -7,6 +7,7 @@ int Collision_World_Obj(Cha *Ch, WO *WOS);
 void Jump(Cha *Ch, Enemy1 *E1, SDL_Rect OMCP, WO *WOS);
 void ScrollR(SDL_Rect *P);
 void ScrollL(SDL_Rect *P);
+int collision_coin(Cha *ch,SDL_Rect	coin);
 
 
 
