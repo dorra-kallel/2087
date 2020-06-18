@@ -1,3 +1,7 @@
+/**
+* @file characters.c
+*
+*/
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <stdlib.h>
@@ -5,6 +9,16 @@
 #include "Characters.h"
 #define COINWIDH 84
 #define COINHEIGHT 84
+
+/**
+* @file characters.c
+* @brief characters.
+* @author dorra
+* @version 0.1
+* @date 17/6/2020
+*
+* 
+*/
 
 /*
 typedef struct Character
@@ -21,6 +35,15 @@ typedef struct Character
 */
 
 
+
+/**
+* @brief animation.
+* @param animation 
+* @return Nothing
+*/
+
+
+
 void set_piece_sprite(SDL_Rect animation[6])
 {
     int i;
@@ -33,6 +56,16 @@ void set_piece_sprite(SDL_Rect animation[6])
     }
 }
 
+/**
+* @brief animation.
+* @param temp_precedent int 
+* @param temp_actulle int
+* @param intervalle int
+* @return int
+*/
+
+
+
 int action_intervalle_temp(int *temp_precedent,int temp_actuelle,int intervalle)
 {
     if(temp_actuelle - *temp_precedent >=intervalle)
@@ -43,6 +76,13 @@ int action_intervalle_temp(int *temp_precedent,int temp_actuelle,int intervalle)
     else
         return 0;
 }
+
+/**
+* @brief init.
+* @param ch cha
+* @return Nothing
+*/
+
 
 void Init_Character(Cha *Ch)
 {
@@ -72,6 +112,16 @@ void Move_CharL(Cha *Ch)
 {
 	Ch->MCP.x=Ch->MCP.x-Ch->MS;
 }
+
+/**
+* @brief animation charR.
+* @param ch cha
+* @param screen screen
+* @param NC int 
+* @return int
+*/
+
+
 
 void Anim_CharR(Cha *Ch, SDL_Surface *Screen, int *NC)
 {
@@ -137,6 +187,15 @@ void Anim_CharR(Cha *Ch, SDL_Surface *Screen, int *NC)
 	if(*NC==32)
 	*NC=0;
 }
+
+
+/**
+* @brief animation charl.
+* @param ch cha
+* @param screen screen
+* @param NC int 
+* @return int
+*/
 
 
 void Anim_CharL(Cha *Ch, SDL_Surface *Screen, int *NC)

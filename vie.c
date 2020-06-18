@@ -1,3 +1,7 @@
+/**
+* @file vie.c
+*
+*/
 #include <stdio.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
@@ -5,6 +9,22 @@
 #include <time.h>
 #include <unistd.h>
 #include "vie.h"
+/**
+* @file vie.c
+* @brief vie.
+* @author dorra
+* @version 0.1
+* @date 17/6/2020
+*
+*/
+
+
+
+/**
+* @brief INITIALISER vie.
+* @param vie vie
+* @return NOTHING
+*/
 void initialiservie(vie *vie)
 {
 vie->nb=3;
@@ -16,6 +36,12 @@ vie->fond3 = IMG_Load("f3.png");
 vie->fond5 = IMG_Load("GameOver.png");
 }
 
+/**
+* @brief afficher vie.
+* @param vie vie
+* @param ecron image
+* @return NOTHING
+*/
 void affichervie(vie *vie,SDL_Surface *ecran)
 {
 if(vie->nb==3)

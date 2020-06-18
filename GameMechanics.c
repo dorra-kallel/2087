@@ -1,3 +1,7 @@
+/**
+* @file gameMechanics.c
+*
+*/
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <stdlib.h>
@@ -9,6 +13,23 @@
 #include "score.h"
 #include "Enemy1.h"
 #include "vie.h"
+
+/**
+* @file gameMechanics.c
+* @brief move
+* @author dorra
+* @version 0.1
+* @date 17/6/2020
+*
+* 
+*/
+
+/**
+* @brief COLLISION.
+* @param  ch cha
+* @param E1 Enemy1 
+* @return int
+*/
 
 
 
@@ -30,6 +51,12 @@ int Collision_Enemy(Cha *Ch,Enemy1 *E1)
 	}
 		
 }
+/**
+* @brief COLLISION.
+* @param  ch cha
+* @param WOS WO
+* @return int
+*/
 
 int Collision_World_Obj(Cha *Ch, WO *WOS)
 {
@@ -43,6 +70,14 @@ int Collision_World_Obj(Cha *Ch, WO *WOS)
 		Case=2;
 	return Case;
 }
+
+/**
+* @brief Jump.
+* @param  ch cha
+* @param E1 Enemy1 
+* @return Nothing
+*/
+
 
 void Jump(Cha *Ch, Enemy1 *E1, SDL_Rect OMCP, WO *WOS)
 {
@@ -82,6 +117,13 @@ void ScrollL(SDL_Rect *P)
 {
 	P->x=P->x-4;
 }
+/**
+* @brief COLLISION.
+* @param  ch cha
+* @param coin pos
+* @return int
+*/
+
 
 int collision_coin(Cha *ch,SDL_Rect	coin)
 {

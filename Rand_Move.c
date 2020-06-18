@@ -1,9 +1,31 @@
+/**
+* @file Rand_move.c
+*
+*/
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "Enemy1.h"
 #include "Rand_Move.h"
+
+/**
+* @file Rand_Move.c
+* @brief move.
+* @author dorra
+* @version 0.1
+* @date 17/6/2020
+*
+*/
+
+
+
+/**
+* @brief Random_Movement.
+* @param E1 ENEMY1 
+* @param DESTINATION INTERVAL DE MOVEMENT
+* @return NOTHING
+*/
 
 void Random_Movement(Enemy1 *E1, SDL_Surface *Destination)
 {

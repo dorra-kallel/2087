@@ -1,6 +1,13 @@
 #ifndef ENEMY1_H_
 #define ENEMY1_H_
 
+/**
+* @struct Enemy1
+* @brief struct for Enemy1
+*/
+
+
+
 typedef struct Enemy1 {
 
 	SDL_Surface *Enemy_Picture_R;

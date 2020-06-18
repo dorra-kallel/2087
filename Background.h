@@ -1,10 +1,21 @@
 #ifndef BACKGROUND_H_
-#define BACKGROUND_H_
+
+/**
+* @struct Background
+* @brief struct for backround
+*/
 
 typedef struct Background {
 	SDL_Surface* Background;
 	SDL_Rect BGP;
 }BGS;
+
+/**
+* @struct world_objects
+* @brief struct for objects
+*/
+
+
 
 typedef struct world_objects {
 	SDL_Surface *GR1;

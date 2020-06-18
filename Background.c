@@ -1,4 +1,7 @@
-
+/**
+* @file background.c
+*
+*/
 #include <stdlib.h>
 #include<stdio.h>
 #include "SDL/SDL.h"
@@ -9,6 +12,26 @@
 #include "Background.h"
 
 
+
+
+/**
+* @file background.c
+* @brief background.
+* @author dorra
+* @version 0.1
+* @date 17/6/2020
+*
+* Testing program for background scrollilng
+*/
+
+
+
+
+/**
+* @brief To initialize  .
+* @param wos the background
+* @return Nothing
+*/
 
 void Init_All_Objs(WO *WOS)
 {
@@ -62,13 +85,23 @@ void Init_All_Objs(WO *WOS)
 }
 
 
-
+/**
+* @brief To initialize the background  .
+* @param BG the background
+* @return Nothing
+*/
 void Init_BG(BGS *BG)
 {
 	BG->Background=IMG_Load("background1.png");
 	BG->BGP.x=0;
 	BG->BGP.y=0;
 }
+/**
+* @brief To initialize the background  .
+* @param wos the background
+* @param screen screen
+* @return Nothing
+*/
 
 void Display_All_World_Objects(WO *WOS, SDL_Surface *Screen)
 {
@@ -118,6 +151,12 @@ void Display_All_World_Objects(WO *WOS, SDL_Surface *Screen)
 	SDL_BlitSurface(WOS->GRE,NULL,Screen,&Rep20);
 	
 }
+/**
+* @brief To initialize the background  .
+* @param BG the background
+* @param screen screen
+* @return Nothing
+*/
 
 void Display_BG(BGS *BG,SDL_Surface *Screen)
 {
@@ -126,6 +165,13 @@ void Display_BG(BGS *BG,SDL_Surface *Screen)
 	Rep=BG->BGP;
 	SDL_BlitSurface(BG->Background,NULL,Screen,&Rep);
 }
+
+/**
+* @brief To initialize the background  .
+* @param wos the background
+* @param screen screen
+* @return image
+*/
 
 SDL_Surface* Anim_Background0(SDL_Surface *Image, SDL_Surface *Screen, SDL_Rect BGP, int *NB)
 {
@@ -258,7 +304,14 @@ SDL_Surface* Anim_Background0(SDL_Surface *Image, SDL_Surface *Screen, SDL_Rect 
 	*NB=0;
 	return Image;
 }
-
+/**
+* @brief To initialize the background  .
+* @param button button
+* @param screen screen
+* @param pos position
+* @param NP int
+* @return Nothing
+*/
 
 void Anim_PlayB(SDL_Surface *Button, SDL_Surface *Screen, SDL_Rect Pos, int *NP)
 {
@@ -317,7 +370,14 @@ void Anim_PlayB(SDL_Surface *Button, SDL_Surface *Screen, SDL_Rect Pos, int *NP)
 	if(*NP==7)
 	*NP=0;
 }
-
+/**
+* @brief To initialize the background  .
+* @param button button
+* @param screen screen
+* @param pos position
+* @param NS int
+* @return Nothing
+*/
 
 
 void Anim_SetsB(SDL_Surface *Button, SDL_Surface *Screen, SDL_Rect Pos, int *NS)
@@ -377,7 +437,14 @@ void Anim_SetsB(SDL_Surface *Button, SDL_Surface *Screen, SDL_Rect Pos, int *NS)
 	if(*NS==7)
 	*NS=0;
 }
-
+/**
+* @brief To initialize the background  .
+* @param button button
+* @param screen screen
+* @param pos position
+* @param NQ int
+* @return Nothing
+*/
 
 void Anim_QuitB(SDL_Surface *Button, SDL_Surface *Screen, SDL_Rect Pos, int *NQ)
 {

@@ -4,6 +4,13 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
 
+/**
+* @struct score
+* @brief struct for score
+*/
+
+
+
 typedef struct score
 {
 	int nb;

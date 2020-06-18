@@ -1,0 +1,55 @@
+\hypertarget{bounding_8c}{}\section{bounding.\+c File Reference}
+\label{bounding_8c}\index{bounding.\+c@{bounding.\+c}}
+
+
+colision.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}bounding.\+h\char`\"{}}\newline
+Include dependency graph for bounding.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{bounding_8c_a11061c3a84ba978eafbf373e6ecc75cc}{check\+\_\+collision} (S\+D\+L\+\_\+\+Rect $\ast$A, S\+D\+L\+\_\+\+Rect $\ast$B)
+\begin{DoxyCompactList}\small\item\em chek\+\_\+collision. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+colision. 
+
+\begin{DoxyAuthor}{Author}
+dorra 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+17/6/2020 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{bounding_8c_a11061c3a84ba978eafbf373e6ecc75cc}\label{bounding_8c_a11061c3a84ba978eafbf373e6ecc75cc}} 
+\index{bounding.\+c@{bounding.\+c}!check\+\_\+collision@{check\+\_\+collision}}
+\index{check\+\_\+collision@{check\+\_\+collision}!bounding.\+c@{bounding.\+c}}
+\subsubsection{\texorpdfstring{check\+\_\+collision()}{check\_collision()}}
+{\footnotesize\ttfamily bool check\+\_\+collision (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{A,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{B }\end{DoxyParamCaption})}
+
+
+
+chek\+\_\+collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & pos \\
+\hline
+{\em B} & pos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+\end{DoxyReturn}

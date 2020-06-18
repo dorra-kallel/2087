@@ -1,6 +1,11 @@
 #ifndef CHARACTERS_H_
 #define CHARACTERS_H_
 
+/**
+* @struct character
+* @brief struct for character
+*/
+
 typedef struct Character {
 
 	SDL_Surface *Img;

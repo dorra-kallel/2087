@@ -1,3 +1,7 @@
+/**
+* @file Enemy1.c
+*
+*/
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <stdlib.h>
@@ -22,6 +26,7 @@ void Initialize_Enemy1(Enemy1 *E1)
 }
 
 /**-------------------------------------------------------------------------------------------------**/
+
 
 void Display_Enemy1_R(Enemy1 *E1, SDL_Surface *Destination)
 {

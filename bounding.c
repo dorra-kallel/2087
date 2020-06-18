@@ -1,7 +1,30 @@
+
 #include<stdlib.h>
 #include<stdio.h>
 #include<SDL/SDL.h>
 #include"bounding.h"
+
+/**
+* @file bounding.c
+* @brief colision.
+* @author dorra
+* @version 0.1
+* @date 17/6/2020
+*
+*/
+
+
+
+
+/**
+* @brief chek_collision.
+* @param  A pos
+* @param B pos
+* @return true
+*/
+
+
+
 bool check_collision( SDL_Rect *A, SDL_Rect *B )
 {
     //Les cotes des rectangles

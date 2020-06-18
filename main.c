@@ -1,3 +1,7 @@
+/**
+* @file main.c
+*
+*/
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <stdlib.h>
@@ -9,6 +13,17 @@
 #include "vie.h"
 //#include "gestion.h"
 // #include "bounding.h"
+
+/**
+* @file main.c
+* @brief Testing Program.
+* @author dorra
+* @version 0.1
+* @date 17/6/2020
+*
+*
+*/
+
 
 
 int main(int argc, char *argv[])
@@ -24,7 +39,8 @@ int main(int argc, char *argv[])
 
     int SCORE=0;
     int once=0;
- 
+    
+    
     
 
     SDL_Surface *Screen=NULL,*Background0=NULL,*Play1=NULL,*Play2=NULL,*Play3=NULL,*Sets1=NULL,*Sets2=NULL,*Sets3=NULL,*Quit1=NULL,*Quit2=NULL,*Quit3=NULL,*Title=NULL,*spritesheet_coins=NULL;
@@ -151,15 +167,16 @@ int main(int argc, char *argv[])
                                 }
                     }
                     printf("SCORE: %d\n",SCORE);
-                    for (i=0;i<6;i++)
+                     for (i=0;i<6;i++)
                     {
-                        //printf("COLL: %d\n",collision_coin(MC,animation_coins[i]));
+                       //printf("COLL: %d\n",collision_coin(MC,animation_coins[i]));
                         if (collision_coin(MC,animation_coins[i]) && !once)
                         {
                             SCORE++;
                             once=1;
                     
-                        }
+                        } 
+                        
                     }
                     if (keystates[SDLK_RIGHT])
                     {

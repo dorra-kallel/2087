@@ -1,5 +1,13 @@
 #ifndef VIE_H_
 #define VIE_H_
+
+/**
+* @struct vie
+* @brief struct for vie
+*/
+
+
+
 typedef struct vie
 {
 	int nb;
